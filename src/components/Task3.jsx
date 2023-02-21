@@ -1,18 +1,16 @@
-import { useMemo } from 'react';
-import { useRef } from 'react';
+import React from 'react';
 import styles from './Task3.module.scss';
 
 const Task3 = () => {
+  const [width, setWidth] = React.useState();
+  const elementRef = React.useRef(0);
 
-  const elementRef = useRef(null);
-  console.log(elementRef);
-  const width = useMemo(() => {
-    const elementWidth = elementRef.current.clientWidth;
-    return elementWidth;
-  }, [elementRef])
+  React.useEffect(() => {
+  setWidth(elementRef.current.clientWidth)
+  }, [elementRef]);
 
   const handleButtonClick = () => {
-    if (width >= 100) {
+    if (width <= 100) {
       elementRef.current.classList.add(styles.blue)
     } else {
       elementRef.current.classList.add(styles.green)
@@ -21,16 +19,16 @@ const Task3 = () => {
 
   return (
     <div>
-      <button 
-        ref={elementRef}
+      <button
       onClick={handleButtonClick}>
         Click</button>
       <div
+        ref={elementRef}
         className={styles.box}
       >
         Box
       </div>
-    </div >
+    </div>
   )
 
 }

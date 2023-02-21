@@ -15,7 +15,7 @@ const listOfItems = Array(4)
       status: "active",
     };
   });
-
+  
 const Task7 = () => {
   const [status, setStatus] = React.useState("active"); // active | blocked
   let myVisibleElements = listOfItems;

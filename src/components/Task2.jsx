@@ -2,17 +2,12 @@ import { useState } from 'react';
 
 
 
-const Task2 = (props) => {
+const Task2 = () => {
   const [idValue, setIdValue] = useState('');
   const [requestedId, setRequestedId] = useState(null);
 
-  const fetchData = () => {
-    fakeRequest(requestedId);
-  }
-
   const submitHandler = () => {
-    setRequestedId(idValue);
-    fetchData(requestedId)
+    fakeRequest(idValue);
     setIdValue('')
   }
 
@@ -34,14 +29,7 @@ const Task2 = (props) => {
 
 export default Task2;
 
-
-
-
-
-
-
-
-async function fakeRequest(id) {
+const  fakeRequest = async (id) => {
   await new Promise((res) => {
     setTimeout(() => { res(1) }, 200)
   });

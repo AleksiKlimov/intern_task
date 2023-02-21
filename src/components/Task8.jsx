@@ -9,6 +9,7 @@ const Task8 = () => {
       .then((result) => {
         setUserId(result);
       })
+      .then(setDoRequest(false))
       .catch((err) => {
         setUserId(1);
       });
