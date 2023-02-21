@@ -4,13 +4,13 @@ import styles from './Task3.module.scss';
 
 const Task3 = () => {
 
-  const elementRef = useRef();
-  
+  const elementRef = useRef(null);
+  console.log(elementRef);
   const width = useMemo(() => {
     const elementWidth = elementRef.current.clientWidth;
     return elementWidth;
   }, [elementRef])
-  
+
   const handleButtonClick = () => {
     if (width >= 100) {
       elementRef.current.classList.add(styles.blue)
@@ -21,11 +21,16 @@ const Task3 = () => {
 
   return (
     <div>
-      <button onClick={handleButtonClick}>Click</button>
-      <div className={styles.box} ref={elementRef}>
+      <button 
+        ref={elementRef}
+      onClick={handleButtonClick}>
+        Click</button>
+      <div
+        className={styles.box}
+      >
         Box
       </div>
-    </div>
+    </div >
   )
 
 }

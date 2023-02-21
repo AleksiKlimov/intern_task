@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Task8 = (props) => {
+const Task8 = () => {
   const [userId, setUserId] = React.useState(1);
   const [doRequest, setDoRequest] = React.useState(false);
 
@@ -22,12 +22,12 @@ const Task8 = (props) => {
     <>
     <h1>User id is {userId}</h1>
     <button onClick={startFetchId}>Fetch Id</button>
-    
+
     </>
   )
 };
 
-function fakeApi(id) {
+const fakeApi = async (id) => {
   console.log("Api fired");
 
   return new Promise((res) => {

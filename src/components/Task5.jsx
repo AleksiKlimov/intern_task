@@ -42,7 +42,7 @@ const ListItem = (props) => {
   return (
     <div
       style={{
-        background: isColored ? props.color : "white",
+        background: isColored ? props.color : 'white',
       }}
     >
       <p>color will be - {props.color}</p>

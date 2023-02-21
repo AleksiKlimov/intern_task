@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 
 const Task2 = (props) => {
-  const [idValue, setIdValue] = useState();
+  const [idValue, setIdValue] = useState('');
   const [requestedId, setRequestedId] = useState(null);
 
   const fetchData = () => {
@@ -12,7 +12,8 @@ const Task2 = (props) => {
 
   const submitHandler = () => {
     setRequestedId(idValue);
-    fetchData()
+    fetchData(requestedId)
+    setIdValue('')
   }
 
   const inputChangeHandler = (ev) => {
@@ -22,7 +23,10 @@ const Task2 = (props) => {
   return (
     <div>
       <button onClick={submitHandler}>Submit</button>
-      <input type="number" onChange={inputChangeHandler} value={idValue}/>
+      <input
+        type="number"
+        onChange={inputChangeHandler}
+        value={idValue} />
     </div>
   )
 
@@ -39,7 +43,7 @@ export default Task2;
 
 async function fakeRequest(id) {
   await new Promise((res) => {
-    setTimeout(() => {res(1)}, 200)
+    setTimeout(() => { res(1) }, 200)
   });
 
   console.log('Id in request is:', id)

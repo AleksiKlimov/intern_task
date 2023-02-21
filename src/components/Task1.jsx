@@ -7,7 +7,10 @@ const Task1 = () => {
   };
 
   return (
-    <button onClick={toggler()} style={{ background: state ? "red" : "blue" }}>
+    <button
+      onClick={toggler}
+      style={{ background: state ? "red" : "blue" }}
+    >
       Click Me
     </button>
   );

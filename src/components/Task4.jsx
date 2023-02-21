@@ -5,11 +5,11 @@ const Task4 = () => {
   return (
     <div>
       <ul>
-        {fakeList.map((item) => {
-          <li>
+        {fakeList.map((item) => (
+          <li key={item}>
             {item}
           </li>
-        })}
+        ))}
       </ul>
     </div>
   )

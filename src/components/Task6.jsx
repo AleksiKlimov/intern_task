@@ -4,17 +4,19 @@ import { useEffect } from "react";
 const Task6 = (props) => {
   const [remoteId, setRemoteId] = React.useState(1);
 
-  useEffect(async () => {
-    const res = await fakeApi(remoteId);
-    setRemoteId(res)
-  });
+  useEffect(() => {
+    (async () => {
+      const res = await fakeApi(remoteId);
+      setRemoteId(res);
+    })()
+  }, []);
 
   return (
     <h1>ID is {remoteId}</h1>
   )
 };
 
-function fakeApi(id) {
+const fakeApi = (id) => {
   console.log("Api fired");
 
   return new Promise((res) => {

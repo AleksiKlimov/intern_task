@@ -16,27 +16,21 @@ const listOfItems = Array(4)
     };
   });
 
-const Task7 = (props) => {
+const Task7 = () => {
   const [status, setStatus] = React.useState("active"); // active | blocked
   let myVisibleElements = listOfItems;
 
-  if (status === "blocked") {
     myVisibleElements = useMemo(() => {
-      return listOfItems.filter((i) => i.status === "blocked");
-    }, [status]);
-  } else {
-    myVisibleElements = useMemo(() => {
-      return listOfItems.filter((i) => i.status === "active");
-    }, [status]);
-  }
-
+      return listOfItems.filter((i) => i.status === status);
+    }, [status, setStatus]);
+ 
   const toggleStatus = () => {
-    setStatus(status === 'acvtive' ? 'block' : 'active')
+    setStatus(status === 'active' ? 'blocked' : 'active')
   }
 
   return (
     <div>
-      <button onClick={toggleStatus}></button>
+      <button onClick={toggleStatus}>button</button>
       {myVisibleElements.map((item, idx) => (
         <p key={idx}>{item.name}</p>
       ))}
